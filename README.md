@@ -5,6 +5,11 @@ The app is structured with two layers.
 1. todolist.py: core functionalities to handle underlying data structure and provide operations interface like insert, remove. 
 2. todolistApp.py: provides command interface with print out messages. 
 
+### to run 
+```
+python ./src/todolistApp.py
+```
+
 ## unit tests
 
 ### run unit tests
@@ -51,9 +56,9 @@ For the interface layer, unittest.mock is used to mock user inputs.
   9. LinkedList - removeTargetValue
      1.  remove head with value
      2.  exception: remove non-exist value
- 10. LinkedList - nodeAt
-     1.  test node at position 2
-     2.  exception: remove out of range
+  10. LinkedList - nodeAt
+      1.  test node at position 2
+      2.  exception: remove out of range
   
 * todolistApp.py
   1. test greet and end message
@@ -66,8 +71,6 @@ For the interface layer, unittest.mock is used to mock user inputs.
   8. test command: RA
   9. test command: IS
   10. test command: RT
-
-* todolistApp.py
   
 
 ### result
