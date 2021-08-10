@@ -1,14 +1,14 @@
-import unittest
 import sys
-import io 
+sys.path.append('../src')
 
-sys.path.append('../src') 
 import todolist
+import unittest
+import io
 
 class TestTodolist(unittest.TestCase):
     def getEnd(self, head):
         tmp = head
-        while(tmp.next is not None):            
+        while(tmp.next is not None):
             tmp = tmp.next
         return tmp
 
@@ -24,10 +24,10 @@ class TestTodolist(unittest.TestCase):
 
         self.assertIsNone(list.head)
         self.assertEqual(list.size, 0)
-    
+
     def test_printlist(self):
         capturedOutput = io.StringIO()               # Create StringIO object
-        sys.stdout = capturedOutput                   #  and redirect stdout.
+        sys.stdout = capturedOutput  # and redirect stdout.
         testList = todolist.LinkedList()
         testList.insert_at_beginning("head")
         testList.insert_at_end("end")
@@ -44,13 +44,13 @@ class TestTodolist(unittest.TestCase):
         self.assertEqual(testList.head.data, testTask1)
         testList.insert_at_beginning(testTask2)
         self.assertEqual(testList.head.data, testTask2)
-    
+
     def test_insertAtEnd_0(self):
         testTask1 = "testTask1"
         testList = todolist.LinkedList()
         testList.insert_at_end(testTask1)
         self.assertEqual(testList.head.data, "testTask1")
-    
+
     def test_insertAtEnd(self):
         testTask1 = "testTask1"
         testTask2 = "testTask2"
@@ -63,13 +63,12 @@ class TestTodolist(unittest.TestCase):
 
     def test_insertAtPos_error(self):
         capturedOutput = io.StringIO()               # Create StringIO object
-        sys.stdout = capturedOutput                   #  and redirect stdout.
+        sys.stdout = capturedOutput  # and redirect stdout.
         testList = todolist.LinkedList()
         testList.insert_at_pos(2, "test")
         self.assertTrue("Error:" in capturedOutput.getvalue())
         sys.stdout = sys.__stdout__
 
-    
     def test_insertAtPos_0(self):
         testTask1 = "testTask1"
         testList = todolist.LinkedList()
@@ -89,19 +88,15 @@ class TestTodolist(unittest.TestCase):
         testList.insert_at_pos(2, testTask3)
 
         self.assertEqual(testList.head.next.next.data, testTask3)
-    
-    # def test_insertAfterTargetValue(self):
-    #     # TODO
-    #     return
-    
+
     def test_pop_error(self):
-        capturedOutput = io.StringIO()               # Create StringIO object
-        sys.stdout = capturedOutput                   #  and redirect stdout.
+        capturedOutput = io.StringIO()               
+        sys.stdout = capturedOutput  
         testList = todolist.LinkedList()
         testList.pop()
         self.assertTrue("Error:" in capturedOutput.getvalue())
         sys.stdout = sys.__stdout__
-    
+
     def test_pop(self):
         testTask1 = "testTask1"
         testTask2 = "testTask2"
@@ -112,15 +107,15 @@ class TestTodolist(unittest.TestCase):
         popped = testList.pop()
         self.assertEqual(popped.data, testTask1)
         self.assertEqual(testList.size, 1)
-    
+
     def test_removeAt_error(self):
         capturedOutput = io.StringIO()               # Create StringIO object
-        sys.stdout = capturedOutput     
+        sys.stdout = capturedOutput
         testList = todolist.LinkedList()
         testList.remove_at(1)
         self.assertTrue("Error:" in capturedOutput.getvalue())
         sys.stdout = sys.__stdout__
-    
+
     def test_removeAt_0(self):
         testTask1 = "testTask1"
         testTask2 = "testTask2"
@@ -131,7 +126,7 @@ class TestTodolist(unittest.TestCase):
         testList.insert_at_beginning(testTask1)
         removed = testList.remove_at(0)
         self.assertEqual(removed.data, testTask1)
-    
+
     def test_removeAt_pos(self):
         testTask1 = "testTask1"
         testTask2 = "testTask2"
@@ -145,15 +140,15 @@ class TestTodolist(unittest.TestCase):
         testList.remove_at(2)
         targetPos = testList.index_of(testTask4)
         self.assertEqual(targetPos, 2)
-    
+
     def test_removeTargetValue_NoneError(self):
         capturedOutput = io.StringIO()               # Create StringIO object
-        sys.stdout = capturedOutput     
+        sys.stdout = capturedOutput
         testList = todolist.LinkedList()
         testList.remove_target_value(None)
         self.assertTrue("Error:" in capturedOutput.getvalue())
         sys.stdout = sys.__stdout__
-    
+
     def test_removeTargetValue(self):
         testTask1 = "testTask1"
         testTask2 = "testTask2"
@@ -167,7 +162,7 @@ class TestTodolist(unittest.TestCase):
 
     def test_removeTarget_noValue(self):
         capturedOutput = io.StringIO()               # Create StringIO object
-        sys.stdout = capturedOutput   
+        sys.stdout = capturedOutput
         testTask1 = "testTask1"
         testTask2 = "testTask2"
         testTask3 = "testTask3"
@@ -195,7 +190,7 @@ class TestTodolist(unittest.TestCase):
 
     def test_nodeAt_outOfRangeError(self):
         capturedOutput = io.StringIO()               # Create StringIO object
-        sys.stdout = capturedOutput     
+        sys.stdout = capturedOutput
         testTask1 = "testTask1"
         testTask2 = "testTask2"
         testTask3 = "testTask3"
@@ -207,4 +202,3 @@ class TestTodolist(unittest.TestCase):
         self.assertTrue("Error: Index not valid" in capturedOutput.getvalue())
         self.assertEqual(target, -1)
         sys.stdout = sys.__stdout__
-

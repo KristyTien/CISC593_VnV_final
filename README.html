@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CISC593&lowbar;VnV&lowbar;fina</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="cisc593_vnv_fina">CISC593_VnV_fina</h1>
+<h2 id="app-structure">app structure</h2>
+<p>The app is structured with two layers.</p>
+<ol>
+<li><a href="http://todolist.py">todolist.py</a>: core functionalities to handle underlying data structure and provide operations interface like insert, remove.</li>
+<li><a href="http://todolistApp.py">todolistApp.py</a>: provides command interface with print out messages.</li>
+</ol>
+<h2 id="unit-tests">unit tests</h2>
+<h3 id="run-unit-tests">run unit tests</h3>
+<ol>
+<li>install <a href="http://coverage.py">coverage.py</a></li>
+</ol>
+<pre><code class="language-batch"><code><div>   pip install coverage
+</div></code></code></pre>
+<ol start="2">
+<li>run tests</li>
+</ol>
+<pre><code class="language-batch"><code><div>coverage run --source=../src -m unittest
+coverage report -m
+</div></code></code></pre>
+<h3 id="unit-test-utilities">unit test utilities</h3>
+<p>Uses python built-in unit test framework to build tests.
+For the interface layer, unittest.mock is used to mock user inputs.</p>
+<h3 id="unit-test-cases">unit test cases</h3>
+<ul>
+<li><a href="http://todolist.py">todolist.py</a>
+<ol>
+<li>Node
+<ol>
+<li>test node with data and next properties</li>
+</ol>
+</li>
+<li>LinkedList
+<ol>
+<li>test linked list with head and size properties</li>
+</ol>
+</li>
+<li>printList
+<ol>
+<li>test linked list can be printed with index and value</li>
+</ol>
+</li>
+<li>LinkedList - insert at the beginning
+<ol>
+<li>test inserting a task at the beginning</li>
+</ol>
+</li>
+<li>LinkedList - insert at the end
+<ol>
+<li>insert at the end when list is empty</li>
+<li>insert at the end when list is not empty</li>
+</ol>
+</li>
+<li>LinkedList - insert at position
+<ol>
+<li>exception : position out of range</li>
+<li>insert at position 0</li>
+<li>insert in the middle position</li>
+</ol>
+</li>
+<li>LinkedList - pop
+<ol>
+<li>exception : pop an empty list</li>
+<li>pop a non-empty list</li>
+</ol>
+</li>
+<li>LinkedList - removeAt
+<ol>
+<li>exception: remove out of range</li>
+<li>remove at position 0</li>
+<li>remove at position 2</li>
+</ol>
+</li>
+<li>LinkedList - removeTargetValue
+<ol>
+<li>remove head with value</li>
+<li>exception: remove non-exist value</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="10">
+<li>LinkedList - nodeAt
+<ol>
+<li>test node at position 2</li>
+<li>exception: remove out of range</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>
+<p><a href="http://todolistApp.py">todolistApp.py</a></p>
+<ol>
+<li>test greet and end message</li>
+<li>Exception: test invalid command input</li>
+<li>test command: IB</li>
+<li>test command: POP</li>
+<li>test command: IE, SEARCH</li>
+<li>test command: IP</li>
+<li>test command: FIND</li>
+<li>test command: RA</li>
+<li>test command: IS</li>
+<li>test command: RT</li>
+</ol>
+</li>
+<li>
+<p><a href="http://todolistApp.py">todolistApp.py</a></p>
+</li>
+</ul>
+<h3 id="result">result</h3>
+<p>Hit overall 93% code coverage. Generally, 70% to 80% code coverage is considered a high standard for applications.</p>
+<p>Name              Stmts   Miss  Cover   Missing</p>
+<hr>
+<h2 id="todolistpy--------124------7----94---67-68-75-77-78-144-145todolistapppy------87------7----92---75-79-112-113"><a href="http://todolist.py">todolist.py</a>        124      7    94%   67-68, 75, 77-78, 144-145
+<a href="http://todolistApp.py">todolistApp.py</a>      87      7    92%   75-79, 112-113</h2>
+<p>TOTAL              211     14    93%</p>
+
+    </body>
+    </html>
